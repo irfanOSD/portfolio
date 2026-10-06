@@ -1,8 +1,24 @@
+import { lazy, Suspense } from "react";
 import Button from "../ui/Button.jsx";
+import useReducedMotion from "../../hooks/useReducedMotion.js";
+
+// The 3D code is loaded only when needed, so the text appears first
+const HeroScene = lazy(() => import("../../three/HeroScene.jsx"));
 
 function Hero() {
+  const reducedMotion = useReducedMotion();
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
   return (
     <section id="home" className="hero" aria-labelledby="hero-title">
+      {!reducedMotion && (
+        <div className="hero__canvas" aria-hidden="true">
+          <Suspense fallback={null}>
+            <HeroScene isMobile={isMobile} />
+          </Suspense>
+        </div>
+      )}
+
       <div className="container hero__content">
         <p className="hero__eyebrow">Hello, world</p>
         <h1 id="hero-title" className="hero__title">
