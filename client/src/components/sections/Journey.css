@@ -1,0 +1,199 @@
+.journey {
+  position: relative;
+  padding: 6rem 1.5rem;
+  overflow: hidden;
+}
+
+.journey__inner {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.journey__title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  margin: 0 0 1.25rem;
+}
+
+/* পেছনের হালকা ভাসমান আলো */
+.journey__orb {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.18;
+  pointer-events: none;
+  animation: journeyFloat 14s ease-in-out infinite;
+}
+.journey__orb--a { background: #6c63ff; top: 8%; left: -120px; }
+.journey__orb--b { background: #00d4ff; bottom: 6%; right: -120px; animation-delay: -7s; }
+
+@keyframes journeyFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+
+/* Learning → Building → ... */
+.journey__path {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.6rem;
+  align-items: center;
+  margin: 0 0 3rem;
+  padding: 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+.journey__path li { display: flex; align-items: center; gap: 0.6rem; }
+.journey__arrow { color: #8f89ff; }
+
+/* টাইমলাইন */
+.journey__list {
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.journey__line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 9px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.journey__line-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #6c63ff, #00d4ff);
+  box-shadow: 0 0 12px rgba(108, 99, 255, 0.7);
+  transform: scaleY(0);
+  transform-origin: top;
+  will-change: transform;
+}
+
+.journey-item {
+  position: relative;
+  padding: 0 0 2.25rem 2.75rem;
+  opacity: 0;
+  transform: perspective(900px) translateY(26px) rotateX(8deg);
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.journey-item.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.journey-item:last-child { padding-bottom: 0; }
+
+.journey-item__node {
+  position: absolute;
+  top: 1.4rem;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0e0e1a;
+  border: 2px solid #6c63ff;
+  box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.18), 0 0 14px rgba(108, 99, 255, 0.7);
+}
+
+.journey-item__card {
+  padding: 1.25rem 1.4rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.journey-item__card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(108, 99, 255, 0.5);
+}
+
+.journey-item__year {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  background: rgba(108, 99, 255, 0.18);
+  color: #a9a4ff;
+}
+.journey-item__title { margin: 0.6rem 0 0.2rem; font-size: 1.25rem; }
+.journey-item__meta { margin: 0 0 0.5rem; font-size: 0.85rem; opacity: 0.6; }
+.journey-item__desc { margin: 0.4rem 0 0; line-height: 1.6; opacity: 0.82; }
+
+.journey-item__tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.9rem 0 0;
+  padding: 0;
+}
+.journey-item__tags li {
+  padding: 0.28rem 0.7rem;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Present: নোডে হালকা পালস */
+.journey-item.is-present .journey-item__node {
+  background: #6c63ff;
+  animation: journeyPulse 2s ease-in-out infinite;
+}
+@keyframes journeyPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.18), 0 0 14px rgba(108, 99, 255, 0.7); }
+  50% { box-shadow: 0 0 0 8px rgba(108, 99, 255, 0.08), 0 0 22px rgba(108, 99, 255, 0.9); }
+}
+
+/* Future: ডটেড কার্ড, ফাঁপা নোড */
+.journey-item.is-future .journey-item__card {
+  border-style: dashed;
+  border-color: rgba(0, 212, 255, 0.4);
+}
+.journey-item.is-future .journey-item__node {
+  border-color: #00d4ff;
+  box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.15), 0 0 14px rgba(0, 212, 255, 0.6);
+}
+.journey-item.is-future .journey-item__year {
+  background: rgba(0, 212, 255, 0.15);
+  color: #6fe6ff;
+}
+
+/* ডেস্কটপ: মাঝের লাইন, দুই পাশে কার্ড */
+@media (min-width: 900px) {
+  .journey__line { left: 50%; transform: translateX(-50%); }
+
+  .journey-item { width: 50%; padding-left: 0; padding-bottom: 2.5rem; }
+
+  .journey-item.is-left {
+    padding-right: 2.75rem;
+    transform: perspective(900px) translateX(-26px) rotateY(6deg);
+  }
+  .journey-item.is-right {
+    margin-left: 50%;
+    padding-left: 2.75rem;
+    transform: perspective(900px) translateX(26px) rotateY(-6deg);
+  }
+  .journey-item.is-visible { transform: none; }
+
+  .journey-item.is-left .journey-item__node { left: auto; right: -10px; }
+  .journey-item.is-right .journey-item__node { left: -10px; }
+}
+
+/* Reduced motion: অ্যানিমেশন বন্ধ, সব কনটেন্ট সরাসরি দেখাবে */
+@media (prefers-reduced-motion: reduce) {
+  .journey-item,
+  .journey-item.is-left,
+  .journey-item.is-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .journey__orb,
+  .journey-item.is-present .journey-item__node { animation: none; }
+  .journey-item__card { transition: none; }
+  .journey-item__card:hover { transform: none; }
+}
