@@ -3,9 +3,10 @@ import Section from "./components/layout/Section.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import Hero from "./components/sections/Hero.jsx";
 import About from "./components/sections/About.jsx";
+import Skills from "./components/sections/Skills.jsx";
 import { navLinks } from "./data/navLinks.js";
 
-const builtSections = ["home", "about"];
+const builtSections = ["home", "about", "skills"];
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <main>
         <Hero />
         <About />
+        <Skills />
         {navLinks
           .filter((link) => !builtSections.includes(link.id))
           .map((link) => (
