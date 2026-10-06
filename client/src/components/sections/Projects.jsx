@@ -6,7 +6,7 @@ export default function Projects() {
     <section id="projects" className="projects">
       <div className="projects__inner">
         <h2 className="projects__title">Projects</h2>
-        <p className="projects__subtitle">আমার তৈরি করা কিছু কাজ</p>
+        <p className="projects__subtitle">Some work I made</p>
 
         <div className="projects__list">
           {projects.map((p) => (

@@ -43,6 +43,14 @@ export const journey = [
       "Started building native Android applications and worked on real-world Android projects.",
     tags: ["Android Studio", "Kotlin", "XML", "Java", "Firebase", "Git & GitHub"],
   },
+    {
+    year: "Internship",
+    title: "Software Development Intern at Tori IT",
+    meta: "Tori IT",
+    description:
+      "Completed a Software Development internship focused on native Android application development, working on the CleaningServiceApp project and gaining hands-on experience with a real-world development workflow.",
+    tags: ["Kotlin", "Java", "XML", "Android Studio", "Firebase", "Git & GitHub"],
+  },
   {
     year: "2026",
     title: "CleaningServiceApp",

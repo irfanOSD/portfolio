@@ -108,6 +108,8 @@
     padding: 0.5rem 1.25rem 1rem;
     background: var(--bg-elevated);
     border-bottom: 1px solid var(--border);
+    max-height: calc(100svh - 64px);
+    overflow-y: auto;
   }
 
   .navbar__list--open {

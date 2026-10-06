@@ -14,6 +14,24 @@ function Navbar() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  // Lock page scroll while the mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  // Close the menu if the window grows to desktop size
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 901px)");
+    const handleChange = (event) => {
+      if (event.matches) setMenuOpen(false);
+    };
+    query.addEventListener("change", handleChange);
+    return () => query.removeEventListener("change", handleChange);
+  }, []);
+
   return (
     <header className="navbar">
       <nav className="navbar__inner" aria-label="Main navigation">

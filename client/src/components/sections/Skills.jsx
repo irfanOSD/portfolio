@@ -29,9 +29,7 @@ export default function Skills() {
     <section id="skills" className="skills" ref={ref}>
       <div className="skills__inner">
         <h2 className="skills__title">Skills</h2>
-        <p className="skills__subtitle">
-          আমি যে টেকনোলজি নিয়ে কাজ করি
-        </p>
+        <p className="skills__subtitle">Technologies I work with</p>
 
         <div className="skills__tabs" role="tablist" aria-label="Skill categories">
           {skillCategories.map((cat) => (

@@ -96,8 +96,9 @@
   flex: none;
   padding: 0.3rem 0.6rem;
   border-radius: 8px;
-  font-size: 0.85rem;
-  font-family: monospace;
+  font-size: 1rem;
+  display: grid;
+  place-items: center;
   background: rgba(108, 99, 255, 0.18);
   color: #a9a4ff;
 }

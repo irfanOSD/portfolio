@@ -1,20 +1,35 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useRef, useState } from "react";
 import Button from "../ui/Button.jsx";
 import useReducedMotion from "../../hooks/useReducedMotion.js";
+import useInView from "../../hooks/useInView.js";
+import { isWebGLAvailable } from "../../utils/webgl.js";
 
 // The 3D code is loaded only when needed, so the text appears first
 const HeroScene = lazy(() => import("../../three/HeroScene.jsx"));
 
+// Change to true after you add client/public/resume.pdf
+const RESUME_AVAILABLE = false;
+
 function Hero() {
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef);
   const reducedMotion = useReducedMotion();
+  const [webglOk] = useState(isWebGLAvailable);
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
+  const showScene = !reducedMotion && webglOk;
+
   return (
-    <section id="home" className="hero" aria-labelledby="hero-title">
-      {!reducedMotion && (
+    <section
+      ref={sectionRef}
+      id="home"
+      className="hero"
+      aria-labelledby="hero-title"
+    >
+      {showScene && (
         <div className="hero__canvas" aria-hidden="true">
           <Suspense fallback={null}>
-            <HeroScene isMobile={isMobile} />
+            <HeroScene isMobile={isMobile} active={inView} />
           </Suspense>
         </div>
       )}
@@ -34,9 +49,21 @@ function Hero() {
 
         <div className="hero__actions">
           <Button href="#projects">View Projects</Button>
-          <Button href="/resume.pdf" variant="secondary" download>
-            Download Resume
-          </Button>
+
+          {RESUME_AVAILABLE ? (
+            <Button href="/resume.pdf" variant="secondary" download>
+              Download Resume
+            </Button>
+          ) : (
+            <button
+              type="button"
+              className="btn btn--secondary"
+              disabled
+            >
+              Resume Coming Soon
+            </button>
+          )}
+
           <Button href="#contact" variant="ghost">
             Contact Me
           </Button>
