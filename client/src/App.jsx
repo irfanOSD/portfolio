@@ -9,6 +9,7 @@ import Journey from "./components/sections/Journey.jsx";
 import Resume from "./components/sections/Resume.jsx";
 import Contact from "./components/sections/Contact.jsx";
 import { navLinks } from "./data/navLinks.js";
+import GitHub from "./components/sections/GitHub.jsx"
 
 // যে সেকশন বানানো হয়ে গেছে: id → কম্পোনেন্ট
 const sectionComponents = {
@@ -17,6 +18,7 @@ const sectionComponents = {
   skills: Skills,
   projects: Projects,
   journey: Journey,
+  github: GitHub,
   resume: Resume,
   contact: Contact,
 };

@@ -1,0 +1,156 @@
+.github {
+  padding: 6rem 1.5rem;
+}
+
+.github__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.github__title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  margin: 0 0 1.5rem;
+}
+
+/* প্রোফাইল বার */
+.github__profile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.github__avatar {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #6c63ff, #00d4ff);
+  box-shadow: 0 0 14px rgba(108, 99, 255, 0.45);
+}
+
+.github__profile-text {
+  flex: 1;
+  min-width: 160px;
+  display: grid;
+}
+.github__username {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.github__hint {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.github__button {
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid #6c63ff;
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.github__button:hover {
+  background: #6c63ff;
+}
+
+/* রিপো কার্ড */
+.github__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 400px));
+  gap: 1.25rem;
+}
+
+.repo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1.4rem;
+  border-radius: 16px;
+  color: inherit;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.repo-card:hover {
+  border-color: rgba(108, 99, 255, 0.55);
+  box-shadow: 0 0 22px rgba(108, 99, 255, 0.2);
+}
+
+.repo-card__top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.repo-card__icon {
+  flex: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-family: monospace;
+  background: rgba(108, 99, 255, 0.18);
+  color: #a9a4ff;
+}
+.repo-card__name {
+  margin: 0;
+  font-size: 1.15rem;
+  overflow-wrap: anywhere;
+}
+
+.repo-card__desc {
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0.82;
+}
+
+.repo-card__langs {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+}
+.repo-card__langs li {
+  padding: 0.28rem 0.7rem;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.repo-card__cta {
+  margin-top: auto;
+  font-size: 0.9rem;
+  color: #a9a4ff;
+}
+
+/* Reveal অ্যানিমেশন */
+.github-reveal {
+  opacity: 0;
+  transform: perspective(900px) translateY(20px) rotateX(6deg);
+  transition: opacity 0.55s ease,
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.github-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .github-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
