@@ -2,7 +2,10 @@ import Navbar from "./components/layout/Navbar.jsx";
 import Section from "./components/layout/Section.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import Hero from "./components/sections/Hero.jsx";
+import About from "./components/sections/About.jsx";
 import { navLinks } from "./data/navLinks.js";
+
+const builtSections = ["home", "about"];
 
 function App() {
   return (
@@ -10,8 +13,9 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <About />
         {navLinks
-          .filter((link) => link.id !== "home")
+          .filter((link) => !builtSections.includes(link.id))
           .map((link) => (
             <Section key={link.id} id={link.id} title={link.label}>
               <div className="section__placeholder">
