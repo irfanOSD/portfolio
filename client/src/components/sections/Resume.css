@@ -1,0 +1,211 @@
+.resume {
+  padding: 6rem 1.5rem;
+}
+
+.resume__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.resume__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.resume__title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  margin: 0 0 0.35rem;
+}
+
+.resume__name {
+  margin: 0;
+  opacity: 0.7;
+}
+
+/* Download বাটন */
+.resume__download {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid #6c63ff;
+  background: #6c63ff;
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(108, 99, 255, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.resume__download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(108, 99, 255, 0.55);
+}
+.resume__download.is-disabled {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: inherit;
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.resume__download.is-disabled:hover {
+  transform: none;
+}
+
+/* লেআউট */
+.resume__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+.resume__main,
+.resume__side {
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+}
+
+@media (min-width: 900px) {
+  .resume__grid {
+    grid-template-columns: 1.7fr 1fr;
+  }
+}
+
+/* কার্ড */
+.resume-card {
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.resume-card__heading {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8f89ff;
+}
+
+.resume-card__text {
+  margin: 0;
+  line-height: 1.65;
+  opacity: 0.85;
+}
+.resume-card__text--muted {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+/* Experience / Education */
+.resume-job__top,
+.resume-project__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+.resume-job__role {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.resume-job__company {
+  margin: 0.2rem 0 0;
+  opacity: 0.7;
+}
+.resume-list {
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.45rem;
+  line-height: 1.55;
+  opacity: 0.88;
+}
+
+.resume-secondary {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.resume-secondary li {
+  display: grid;
+  gap: 0.35rem;
+  justify-items: start;
+  font-size: 0.92rem;
+}
+
+/* Projects */
+.resume-projects {
+  display: grid;
+  gap: 1.5rem;
+}
+.resume-project + .resume-project {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.resume-project__name {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.resume-project .resume-card__text {
+  margin: 0.5rem 0 0.8rem;
+}
+
+/* ব্যাজ ও চিপ */
+.resume-badge {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  background: rgba(108, 99, 255, 0.18);
+  color: #a9a4ff;
+  white-space: nowrap;
+}
+
+.resume-chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+}
+.resume-chips li {
+  padding: 0.28rem 0.7rem;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Reveal অ্যানিমেশন */
+.resume-reveal {
+  opacity: 0;
+  transform: perspective(900px) translateY(22px) rotateX(6deg);
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.resume-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .resume__download {
+    transition: none;
+  }
+  .resume__download:hover {
+    transform: none;
+  }
+}
