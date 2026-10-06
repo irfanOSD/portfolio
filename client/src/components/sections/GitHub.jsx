@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { githubProfile, githubRepos } from "../../data/github.js";
 import "./GitHub.css";
+import { FaGithub, FaCode } from "react-icons/fa";
 
 export default function GitHub() {
   const rootRef = useRef(null);
@@ -36,7 +37,7 @@ export default function GitHub() {
         <h2 className="github__title">GitHub</h2>
 
         <div className="github__profile github-reveal">
-          <span className="github__avatar" aria-hidden="true">GH</span>
+          <span className="github__avatar" aria-hidden="true"><FaGithub /></span>
           <div className="github__profile-text">
             <span className="github__username">@{githubProfile.username}</span>
             <span className="github__hint">Source code of my projects</span>
@@ -62,7 +63,7 @@ export default function GitHub() {
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <div className="repo-card__top">
-                <span className="repo-card__icon" aria-hidden="true">{"</>"}</span>
+                <span className="repo-card__icon" aria-hidden="true"><FaCode /></span>
                 <h3 className="repo-card__name">{repo.name}</h3>
               </div>
               <p className="repo-card__desc">{repo.description}</p>

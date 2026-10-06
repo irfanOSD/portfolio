@@ -32,7 +32,7 @@
   display: grid;
   place-items: center;
   border-radius: 50%;
-  font-weight: 700;
+  font-size: 1.6rem;
   color: #fff;
   background: linear-gradient(135deg, #6c63ff, #00d4ff);
   box-shadow: 0 0 14px rgba(108, 99, 255, 0.45);

@@ -1,10 +1,12 @@
+import { FaEnvelope, FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
+
 export const contactLinks = [
   {
     id: "email",
     label: "Email",
     value: "irfaaan1025@gmail.com",
     href: "mailto:irfaaan1025@gmail.com",
-    glyph: "@",
+    icon: FaEnvelope,
     copy: "irfaaan1025@gmail.com",
   },
   {
@@ -12,7 +14,7 @@ export const contactLinks = [
     label: "LinkedIn",
     value: "Irfan Alam Sourav",
     href: "https://www.linkedin.com/in/irfan-alam-sourav-b16683366",
-    glyph: "in",
+    icon: FaLinkedinIn,
     external: true,
   },
   {
@@ -20,7 +22,7 @@ export const contactLinks = [
     label: "GitHub",
     value: "github.com/irfanOSD",
     href: "https://github.com/irfanOSD",
-    glyph: "GH",
+    icon: FaGithub,
     external: true,
   },
   {
@@ -28,7 +30,7 @@ export const contactLinks = [
     label: "WhatsApp",
     value: "+880 1728 645775",
     href: "https://wa.me/8801728645775",
-    glyph: "WA",
+    icon: FaWhatsapp,
     external: true,
   },
 ];

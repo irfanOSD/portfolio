@@ -65,7 +65,7 @@ export default function Contact() {
                 aria-label={`${item.label}: ${item.value}`}
               >
                 <span className="contact-card__icon" aria-hidden="true">
-                  {item.glyph}
+                                    <item.icon />
                 </span>
                 <span className="contact-card__text">
                   <span className="contact-card__label">{item.label}</span>
