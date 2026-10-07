@@ -83,7 +83,7 @@ function HeroScene({ isMobile, active }) {
     ? { ico: [1.1, 2.4, -2], box: [-1.2, -3.2, -2], torus: [1.2, -2.0, -2] }
     : { ico: [4.0, 0.9, -1], box: [4.7, -1.6, -2], torus: [2.9, -2.5, -1.5] };
   const scale = isMobile ? 0.6 : 1;
-  const shapeOpacity = isMobile ? 0.3 : 0.55;
+  const shapeOpacity = isMobile ? 0.8 : 0.55;
 
   return (
     <Canvas
@@ -93,9 +93,9 @@ function HeroScene({ isMobile, active }) {
       gl={{ antialias: !isMobile, powerPreference: "high-performance" }}
     >
       <Particles
-        count={isMobile ? 80 : 220}
-        opacity={isMobile ? 0.35 : 0.6}
-      />
+      count={isMobile ? 80 : 220}
+      opacity={isMobile ? 0.8 : 0.6}
+/     >
 
       <Shape position={layout.ico} scale={scale} opacity={shapeOpacity}>
         <icosahedronGeometry args={[1.3, 0]} />
