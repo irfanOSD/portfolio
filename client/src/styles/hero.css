@@ -126,3 +126,8 @@
     width: 100%;
   }
 }
+/* Keep the text and buttons above the 3D canvas so clicks reach them */
+.hero__content {
+  position: relative;
+  z-index: 1;
+}
