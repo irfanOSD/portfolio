@@ -8,7 +8,7 @@ import { isWebGLAvailable } from "../../utils/webgl.js";
 const HeroScene = lazy(() => import("../../three/HeroScene.jsx"));
 
 // Change to true after you add client/public/resume.pdf
-const RESUME_AVAILABLE = false;
+const RESUME_AVAILABLE = true;
 
 function Hero() {
   const sectionRef = useRef(null);
