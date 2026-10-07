@@ -185,3 +185,36 @@
     width: 130px;
   }
 }
+/* Prevent the card from growing wider than small phone screens */
+.projects__list {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.project-card > * {
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .projects {
+    padding: 4rem 1rem;
+  }
+
+  .project-card__media {
+    padding: 1rem;
+  }
+
+  .project-card__body {
+    padding: 1.25rem;
+  }
+
+  .project-card__shot {
+    width: min(130px, 36vw);
+  }
+}
+
+/* Touch screens have no real hover, so skip the lift effect */
+@media (hover: none) {
+  .project-card:hover {
+    transform: none;
+  }
+}
